@@ -42,4 +42,4 @@ $ gzip-size jquery.min.js | pretty-bytes
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

@@ -13,10 +13,10 @@
     "gzip-size": "cli.js"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4"
   },
   "scripts": {
-    "test": "xo && node test.js"
+    "test": "xo && ava"
   },
   "files": [
     "cli.js"
@@ -33,10 +33,14 @@
   ],
   "dependencies": {
     "gzip-size": "^3.0.0",
-    "meow": "^3.3.0"
+    "meow": "^3.7.0"
   },
   "devDependencies": {
-    "ava": "0.0.4",
+    "ava": "*",
+    "execa": "^0.5.0",
     "xo": "*"
+  },
+  "xo": {
+    "esnext": true
   }
 }
