@@ -27,7 +27,7 @@ $ gzip-size --help
 
 ## Tip
 
-Combine it with [`pretty-bytes`](https://github.com/sindresorhus/pretty-bytes) to get a human readable output:
+Combine it with [`pretty-bytes-cli`](https://github.com/sindresorhus/pretty-bytes-cli) to get a human readable output:
 
 ```
 $ gzip-size jquery.min.js | pretty-bytes
