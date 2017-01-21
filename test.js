@@ -11,6 +11,11 @@ test('file', async t => {
 	t.is(parseInt(stdout, 10), gzipSize.sync(a));
 });
 
+test('file', async t => {
+	const {stdout} = await execa('./cli.js', ['test.js', '-b']);
+	t.is(parseInt(stdout, 10), gzipSize.sync(a));
+});
+
 test('stdin', async t => {
 	const {stdout} = await execa('./cli.js', ['test.js'], {
 		input: fs.createReadStream('test.js')
