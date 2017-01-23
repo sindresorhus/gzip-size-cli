@@ -3,6 +3,7 @@
 const fs = require('fs');
 const meow = require('meow');
 const fn = require('gzip-size');
+const prettyBytes = require('pretty-bytes');
 
 const cli = meow(`
 	Usage
@@ -14,7 +15,8 @@ const cli = meow(`
 	  211
 `);
 
-const input = cli.input[0];
+const input = cli.input[0] || cli.flags.pretty;
+const bytesFlag = cli.flags.pretty;
 
 if (!input && process.stdin.isTTY) {
 	console.error('Specify a filename');
@@ -23,4 +25,6 @@ if (!input && process.stdin.isTTY) {
 
 const source = input ? fs.createReadStream(input) : process.stdin;
 
-source.pipe(fn.stream()).on('gzip-size', console.log);
+source.pipe(fn.stream()).on('gzip-size', gzipSize => {
+	console.log(bytesFlag ? prettyBytes(gzipSize) : gzipSize);
+});
