@@ -2,17 +2,27 @@
 'use strict';
 const fs = require('fs');
 const meow = require('meow');
-const fn = require('gzip-size');
+const prettyBytes = require('pretty-bytes');
+const gzipSize = require('gzip-size');
 
 const cli = meow(`
 	Usage
 	  $ gzip-size <file>
 	  $ cat <file> | gzip-size
 
-	Example
-	  $ gzip-size index.js
-	  211
-`);
+	Options
+	  --raw  Display value in bytes
+
+	Examples
+	  $ gzip-size unicorn.png
+	  192 kB
+	  $ gzip-size unicorn.png --raw
+	  192256
+`, {
+	boolean: [
+		'raw'
+	]
+});
 
 const input = cli.input[0];
 
@@ -23,4 +33,6 @@ if (!input && process.stdin.isTTY) {
 
 const source = input ? fs.createReadStream(input) : process.stdin;
 
-source.pipe(fn.stream()).on('gzip-size', console.log);
+source.pipe(gzipSize.stream()).on('gzip-size', size => {
+	console.log(cli.flags.raw ? size : prettyBytes(size));
+});

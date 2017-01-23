@@ -19,19 +19,14 @@ $ gzip-size --help
     $ gzip-size <file>
     $ cat <file> | gzip-size
 
-  Example
-    $ gzip-size index.js
-    211
-```
+  Options
+    --raw  Display value in bytes
 
-
-## Tip
-
-Combine it with [`pretty-bytes-cli`](https://github.com/sindresorhus/pretty-bytes-cli) to get a human readable output:
-
-```
-$ gzip-size jquery.min.js | pretty-bytes
-29.34 kB
+  Examples
+    $ gzip-size unicorn.png
+    192 kB
+    $ gzip-size unicorn.png --raw
+    192256
 ```
 
 
