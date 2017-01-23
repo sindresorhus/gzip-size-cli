@@ -25,4 +25,6 @@ if (!input && process.stdin.isTTY) {
 
 const source = input ? fs.createReadStream(input) : process.stdin;
 
-source.pipe(fn.stream()).on('gzip-size', gzipSize => bytesFlag ? console.log(prettyBytes(gzipSize)) : console.log(gzipSize));
+source.pipe(fn.stream()).on('gzip-size', gzipSize => {
+	console.log(bytesFlag ? prettyBytes(gzipSize) : gzipSize);
+});
