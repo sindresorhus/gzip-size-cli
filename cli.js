@@ -11,7 +11,8 @@ const cli = meow(`
 	  $ cat <file> | gzip-size
 
 	Options
-	  --raw  Display value in bytes
+	  --level  Compression level [0-9] (Default: 9)
+	  --raw    Display value in bytes
 
 	Examples
 	  $ gzip-size unicorn.png
@@ -19,6 +20,9 @@ const cli = meow(`
 	  $ gzip-size unicorn.png --raw
 	  192256
 `, {
+	string: [
+		'level'
+	],
 	boolean: [
 		'raw'
 	]
@@ -33,6 +37,12 @@ if (!input && process.stdin.isTTY) {
 
 const source = input ? fs.createReadStream(input) : process.stdin;
 
-source.pipe(gzipSize.stream()).on('gzip-size', size => {
+const options = {};
+
+if (cli.flags.level) {
+	options.level = Number(cli.flags.level);
+}
+
+source.pipe(gzipSize.stream(options)).on('gzip-size', size => {
 	console.log(cli.flags.raw ? size : prettyBytes(size));
 });

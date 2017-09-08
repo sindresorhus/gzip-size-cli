@@ -1,47 +1,44 @@
 {
-  "name": "gzip-size-cli",
-  "version": "2.0.0",
-  "description": "Get the gzipped size of a file or stdin",
-  "license": "MIT",
-  "repository": "sindresorhus/gzip-size-cli",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "bin": {
-    "gzip-size": "cli.js"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "cli.js"
-  ],
-  "keywords": [
-    "cli-app",
-    "cli",
-    "zlib",
-    "gzip",
-    "compressed",
-    "size",
-    "file",
-    "stdin"
-  ],
-  "dependencies": {
-    "gzip-size": "^3.0.0",
-    "meow": "^3.7.0",
-    "pretty-bytes": "^4.0.2"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "execa": "^0.5.0",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true
-  }
+	"name": "gzip-size-cli",
+	"version": "2.0.0",
+	"description": "Get the gzipped size of a file or stdin",
+	"license": "MIT",
+	"repository": "sindresorhus/gzip-size-cli",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"bin": {
+		"gzip-size": "cli.js"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"cli.js"
+	],
+	"keywords": [
+		"cli-app",
+		"cli",
+		"zlib",
+		"gzip",
+		"compressed",
+		"size",
+		"file",
+		"stdin"
+	],
+	"dependencies": {
+		"gzip-size": "^4.0.0",
+		"meow": "^3.7.0",
+		"pretty-bytes": "^4.0.2"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"execa": "^0.8.0",
+		"xo": "*"
+	}
 }

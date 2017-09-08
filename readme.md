@@ -20,7 +20,8 @@ $ gzip-size --help
     $ cat <file> | gzip-size
 
   Options
-    --raw  Display value in bytes
+    --level  Compression level [0-9] (Default: 9)
+    --raw    Display value in bytes
 
   Examples
     $ gzip-size unicorn.png
