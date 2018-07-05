@@ -1,6 +1,6 @@
 {
 	"name": "gzip-size-cli",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"description": "Get the gzipped size of a file or stdin",
 	"license": "MIT",
 	"repository": "sindresorhus/gzip-size-cli",
