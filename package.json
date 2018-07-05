@@ -13,7 +13,7 @@
 		"gzip-size": "cli.js"
 	},
 	"engines": {
-		"node": ">=4"
+		"node": ">=6"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -32,13 +32,13 @@
 		"stdin"
 	],
 	"dependencies": {
-		"gzip-size": "^4.0.0",
-		"meow": "^3.7.0",
-		"pretty-bytes": "^4.0.2"
+		"gzip-size": "^5.0.0",
+		"meow": "^5.0.0",
+		"pretty-bytes": "^5.1.0"
 	},
 	"devDependencies": {
 		"ava": "*",
-		"execa": "^0.8.0",
+		"execa": "^0.10.0",
 		"xo": "*"
 	}
 }

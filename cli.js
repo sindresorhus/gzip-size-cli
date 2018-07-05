@@ -20,25 +20,26 @@ const cli = meow(`
 	  $ gzip-size unicorn.png --raw
 	  192256
 `, {
-	string: [
-		'level'
-	],
-	boolean: [
-		'raw'
-	]
+	flags: {
+		level: {
+			type: 'string'
+		},
+		raw: {
+			type: 'boolean'
+		}
+	}
 });
 
-const input = cli.input[0];
+const [input] = cli.input;
 
 if (!input && process.stdin.isTTY) {
-	console.error('Specify a filename');
+	console.error('Specify a file path');
 	process.exit(1);
 }
 
 const source = input ? fs.createReadStream(input) : process.stdin;
 
 const options = {};
-
 if (cli.flags.level) {
 	options.level = Number(cli.flags.level);
 }
