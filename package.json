@@ -4,16 +4,17 @@
 	"description": "Get the gzipped size of a file or stdin",
 	"license": "MIT",
 	"repository": "sindresorhus/gzip-size-cli",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
 	"bin": {
 		"gzip-size": "cli.js"
 	},
 	"engines": {
-		"node": ">=6"
+		"node": ">=10"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -32,13 +33,13 @@
 		"stdin"
 	],
 	"dependencies": {
-		"gzip-size": "^5.0.0",
-		"meow": "^5.0.0",
-		"pretty-bytes": "^5.1.0"
+		"gzip-size": "^6.0.0",
+		"meow": "^8.0.0",
+		"pretty-bytes": "^5.4.1"
 	},
 	"devDependencies": {
-		"ava": "*",
-		"execa": "^0.10.0",
-		"xo": "*"
+		"ava": "^2.4.0",
+		"execa": "^4.1.0",
+		"xo": "^0.34.2"
 	}
 }

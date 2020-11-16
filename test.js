@@ -13,12 +13,12 @@ test('main', async t => {
 
 test('file', async t => {
 	const {stdout} = await execa('./cli.js', ['test.js', '--raw']);
-	t.is(parseInt(stdout, 10), gzipSize.sync(fixture));
+	t.is(Number.parseInt(stdout, 10), gzipSize.sync(fixture));
 });
 
 test('stdin', async t => {
 	const {stdout} = await execa('./cli.js', ['test.js', '--raw'], {
 		input: fs.createReadStream('test.js')
 	});
-	t.is(parseInt(stdout, 10), gzipSize.sync(fixture));
+	t.is(Number.parseInt(stdout, 10), gzipSize.sync(fixture));
 });

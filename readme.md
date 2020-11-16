@@ -1,14 +1,12 @@
-# gzip-size-cli [![Build Status](https://travis-ci.org/sindresorhus/gzip-size-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/gzip-size-cli)
+# gzip-size-cli [![Build Status](https://travis-ci.com/sindresorhus/gzip-size-cli.svg?branch=master)](https://travis-ci.com/github/sindresorhus/gzip-size-cli)
 
 > Get the gzipped size of a file or stdin
-
 
 ## Install
 
 ```
 $ npm install --global gzip-size-cli
 ```
-
 
 ## Usage
 
@@ -30,12 +28,6 @@ $ gzip-size --help
     192256
 ```
 
-
 ## Related
 
 - [gzip-size](https://github.com/sindresorhus/gzip-size) - API for this module
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
