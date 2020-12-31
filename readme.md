@@ -1,4 +1,4 @@
-# gzip-size-cli [![Build Status](https://travis-ci.com/sindresorhus/gzip-size-cli.svg?branch=master)](https://travis-ci.com/github/sindresorhus/gzip-size-cli)
+# gzip-size-cli
 
 > Get the gzipped size of a file or stdin
 
