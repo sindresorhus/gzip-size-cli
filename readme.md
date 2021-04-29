@@ -20,7 +20,7 @@ $ gzip-size --help
   Options
     --level             Compression level [0-9] (Default: 9)
     --raw               Display value in bytes
-	  --include-original  Display original size
+    --include-original  Display original size
 
   Examples
     $ gzip-size unicorn.png
@@ -28,7 +28,7 @@ $ gzip-size --help
     $ gzip-size unicorn.png --raw
     192256
 	  $ gzip-size unicorn.png --include-original
-	  20 kB → 2 kB
+	  1920 kB → 192 kB
 ```
 
 ## Related

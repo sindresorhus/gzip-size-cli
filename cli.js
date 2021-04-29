@@ -22,7 +22,7 @@ const cli = meow(`
 	  $ gzip-size unicorn.png --raw
 	  192256
 	  $ gzip-size unicorn.png --include-original
-	  20 kB → 2 kB
+	  1920 kB → 192 kB
 `, {
 	flags: {
 		level: {
