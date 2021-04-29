@@ -22,3 +22,9 @@ test('stdin', async t => {
 	});
 	t.is(Number.parseInt(stdout, 10), gzipSize.sync(fixture));
 });
+
+test('include original', async t => {
+	const {stdout} = await execa('./cli.js', ['test.js', '--raw', '--include-original']);
+	const {size} = fs.statSync('test.js');
+	t.is(Number.parseInt(stdout, 10), size);
+});

@@ -33,6 +33,7 @@
 		"stdin"
 	],
 	"dependencies": {
+		"chalk": "^4.1.1",
 		"gzip-size": "^6.0.0",
 		"meow": "^8.0.0",
 		"pretty-bytes": "^5.4.1"
