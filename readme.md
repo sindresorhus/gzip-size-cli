@@ -27,8 +27,8 @@ $ gzip-size --help
     192 kB
     $ gzip-size unicorn.png --raw
     192256
-	  $ gzip-size unicorn.png --include-original
-	  1920 kB → 192 kB
+    $ gzip-size unicorn.png --include-original
+    1920 kB → 192 kB
 ```
 
 ## Related
