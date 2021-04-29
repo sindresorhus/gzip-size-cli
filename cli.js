@@ -40,7 +40,9 @@ if (!input && process.stdin.isTTY) {
 const source = input ? fs.createReadStream(input) : process.stdin;
 
 const options = {};
-options.level = cli.flags.level;
+if(cli.flags.level){
+	options.level = cli.flags.level;
+}
 
 source.pipe(gzipSize.stream(options)).on('gzip-size', size => {
 	console.log(cli.flags.raw ? size : prettyBytes(size));
