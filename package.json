@@ -10,11 +10,12 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
+	"type": "module",
 	"bin": {
-		"gzip-size": "cli.js"
+		"gzip-size": "./cli.js"
 	},
 	"engines": {
-		"node": ">=10"
+		"node": ">=12"
 	},
 	"scripts": {
 		"test": "xo && ava"

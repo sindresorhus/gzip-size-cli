@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-'use strict';
-const fs = require('fs');
-const meow = require('meow');
-const prettyBytes = require('pretty-bytes');
-const gzipSize = require('gzip-size');
-const chalk = require('chalk');
+import fs from 'node:fs';
+import meow from 'meow';
+import prettyBytes from 'pretty-bytes';
+import gzipSize from 'gzip-size';
+import chalk from 'chalk';
 
 const cli = meow(`
 	Usage

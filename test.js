@@ -1,8 +1,7 @@
-'use strict';
-const fs = require('fs');
-const execa = require('execa');
-const test = require('ava');
-const gzipSize = require('gzip-size');
+import fs from 'node:fs';
+import execa from 'execa';
+import test from 'ava';
+import gzipSize from 'gzip-size';
 
 const fixture = fs.readFileSync('test.js', 'utf8');
 
