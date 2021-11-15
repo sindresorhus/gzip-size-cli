@@ -1,9 +1,11 @@
 #!/usr/bin/env node
+import process from 'node:process';
 import fs from 'node:fs';
 import meow from 'meow';
 import prettyBytes from 'pretty-bytes';
 import gzipSize from 'gzip-size';
 import chalk from 'chalk';
+import getStdin from 'get-stdin';
 
 const cli = meow(`
 	Usage
@@ -23,17 +25,18 @@ const cli = meow(`
 	  $ gzip-size unicorn.png --include-original
 	  392 kB → 192 kB
 `, {
+	importMeta: import.meta,
 	flags: {
 		level: {
-			type: 'number'
+			type: 'number',
 		},
 		raw: {
-			type: 'boolean'
+			type: 'boolean',
 		},
 		includeOriginal: {
-			type: 'boolean'
-		}
-	}
+			type: 'boolean',
+		},
+	},
 });
 
 const [input] = cli.input;
@@ -43,19 +46,27 @@ if (!input && process.stdin.isTTY) {
 	process.exit(1);
 }
 
-const source = input ? fs.createReadStream(input) : process.stdin;
-
 const options = {};
 if (cli.flags.level) {
 	options.level = cli.flags.level;
 }
 
-source.pipe(gzipSize.stream(options)).on('gzip-size', size => {
-	let output = cli.flags.raw ? size : prettyBytes(size);
+function output(data) {
+	const originalSize = data.length;
+	const gzippedSize = gzipSize.sync(data);
+
+	let output = cli.flags.raw ? gzippedSize : prettyBytes(gzippedSize);
 	if (cli.flags.includeOriginal) {
-		const {size: originalSize} = fs.statSync(input);
 		output = (cli.flags.raw ? originalSize : prettyBytes(originalSize)) + chalk.dim(' → ') + output;
 	}
 
 	console.log(output);
-});
+}
+
+(async () => {
+	if (input) {
+		output(fs.readFileSync(input));
+	} else {
+		output(await getStdin.buffer());
+	}
+})();

@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install --global gzip-size-cli
+```sh
+npm install --global gzip-size-cli
 ```
 
 ## Usage
