@@ -3,7 +3,7 @@ import process from 'node:process';
 import fs from 'node:fs';
 import meow from 'meow';
 import prettyBytes from 'pretty-bytes';
-import gzipSize from 'gzip-size';
+import {gzipSizeSync} from 'gzip-size';
 import chalk from 'chalk';
 import getStdin from 'get-stdin';
 
@@ -53,7 +53,7 @@ if (cli.flags.level) {
 
 function output(data) {
 	const originalSize = data.length;
-	const gzippedSize = gzipSize.sync(data);
+	const gzippedSize = gzipSizeSync(data);
 
 	let output = cli.flags.raw ? gzippedSize : prettyBytes(gzippedSize);
 	if (cli.flags.includeOriginal) {

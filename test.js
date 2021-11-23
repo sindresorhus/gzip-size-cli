@@ -1,7 +1,7 @@
 import fs from 'node:fs';
-import execa from 'execa';
+import {execa} from 'execa';
 import test from 'ava';
-import gzipSize from 'gzip-size';
+import {gzipSizeSync} from 'gzip-size';
 
 const fixture = fs.readFileSync('test.js', 'utf8');
 
@@ -12,14 +12,14 @@ test('main', async t => {
 
 test('file', async t => {
 	const {stdout} = await execa('./cli.js', ['test.js', '--raw']);
-	t.is(Number.parseInt(stdout, 10), gzipSize.sync(fixture));
+	t.is(Number.parseInt(stdout, 10), gzipSizeSync(fixture));
 });
 
 test('stdin', async t => {
 	const {stdout} = await execa('./cli.js', ['test.js', '--raw'], {
 		input: fs.createReadStream('test.js'),
 	});
-	t.is(Number.parseInt(stdout, 10), gzipSize.sync(fixture));
+	t.is(Number.parseInt(stdout, 10), gzipSizeSync(fixture));
 });
 
 test('include original', async t => {
